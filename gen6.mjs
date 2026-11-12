@@ -63,6 +63,8 @@ const TOPICS=[
   ['p-agree','pen-line','Agreement','Sign the service agreement'],
   ['p-pay','banknote','Pay Cloud Scenic','Founding price: setup {setup:m:5000:100:1000} · Monthly {monthly:m:1500:50:250}'],
   ['p-next','store','Next stores','{next_setup:m:5000:250:1000} setup each, same monthly'],
+  ['p-own','key-square','Who owns what','Yours: customers, data, brand, accounts, money · Ours: the engine underneath'],
+  ['p-jv','handshake','Our venture','Sell it to other owners together, {jv_split:p:50:5:10}% each, attorney next'],
   ['p-legal','file-text','Legal pages','Your lawyer: Terms, Privacy, Texts, Refunds']]}
 ];
 const SECS={'01':'Approve','02':'Wash and fold · Dec or Jan','03':'Before launch','04':'Launch and paperwork'};
