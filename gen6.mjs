@@ -56,17 +56,20 @@ const TOPICS=[
   ['l-day1','smartphone','Day one','Join, earn points, start machines'],
   ['l-plus','crown','TopSpin+','On at launch, or later'],
   ['l-cash','wallet','Laundry Cash','{lc_load:m:20:5:10} gets {lc_bonus:m:2:0.5:1} bonus, up to {lc_cap:p:20:1:5}%']]},
+ {sec:'04',id:'covers',t:'What you get',ic:'package-check',photo:'pickup',rows:[
+  ['p-setup-inc','package-check','Setup, one time','{=setup} per store',[['smartphone','Customer app'],['tablet-smartphone','iPhone and Android'],['zap','Start from the phone'],['wallet','Laundry Cash'],['crown','Rewards and levels'],['rotate-ccw','Instant refunds'],['globe','Website, EN + ES'],['layout-dashboard','Owner dashboard'],['phone-call','AI phone line'],['message-square','Texts and promos'],['truck','Wash and fold + pickup'],['palette','Logo and brand kit'],['printer','Flyer, cling, stickers']]],
+  ['p-month-inc','repeat','Every month','{=monthly} per store, ad spend paid by you',[['server','Hosting and backups'],['shield-check','Security and fixes'],['wrench','Changes on request'],['refresh-cw','App updates'],['phone','Phone line minutes'],['message-square','Texts'],['megaphone','Google and Meta ads'],['calendar-check','Monthly check-in']]]]},
  {sec:'04',id:'paper',t:'Paperwork',ic:'signature',photo:'counter',rows:[
   ['p-agree','pen-line','Agreement','Sign the service agreement'],
   ['p-pay','banknote','Pay Cloud Scenic','Founding price: setup {setup:m:5000:100:1000} · Monthly {monthly:m:1500:50:250}'],
-  ['p-next','store','Next stores','{next_setup:m:3000:250:1000} setup each, same monthly'],
+  ['p-next','store','Next stores','{next_setup:m:5000:250:1000} setup each, same monthly'],
   ['p-legal','file-text','Legal pages','Your lawyer: Terms, Privacy, Texts, Refunds']]}
 ];
 const SECS={'01':'Approve','02':'Wash and fold · Dec or Jan','03':'Before launch','04':'Launch and paperwork'};
 const STEP={m:[.25,1],i:[1,10],p:[1,5],t:[15,60],d:[0,0]};
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 
-const names=[...new Set(TOPICS.flatMap(x=>[x.ic,...x.rows.map(r=>r[1])]).concat(['x','chevron-left','chevron-right','maximize-2']))];
+const names=[...new Set(TOPICS.flatMap(x=>[x.ic,...x.rows.flatMap(r=>[r[1],...(r[4]||[]).map(q=>q[0])])]).concat(['x','chevron-left','chevron-right','maximize-2']))];
 const sym={};
 for(const n of names){const r=await fetch('https://unpkg.com/lucide-static@latest/icons/'+n+'.svg');if(!r.ok)throw new Error('icon '+n+' '+r.status);
  const s=await r.text();sym[n]=s.slice(s.indexOf('>',s.indexOf('<svg'))+1,s.lastIndexOf('</svg>')).replace(/<!--[\s\S]*?-->/g,'').trim()}
@@ -74,12 +77,12 @@ const sprite='<svg width="0" height="0" style="position:absolute" aria-hidden="t
 const I=n=>'<svg aria-hidden="true"><use href="#i-'+n+'"/></svg>';
 
 const keys=new Set();
-const fact=f=>esc(f).replace(/\{([a-z0-9_]+):([mipdt]):([^:}]*)(?::([^:}]*))?(?::([^:}]*))?\}/g,(_,k,ty,df,s,b)=>{
+const fact=f=>esc(f).replace(/\{=([a-z0-9_]+)\}/g,'<b class="lv" data-live="$1" data-fmt="m"></b>').replace(/\{([a-z0-9_]+):([mipdt]):([^:}]*)(?::([^:}]*))?(?::([^:}]*))?\}/g,(_,k,ty,df,s,b)=>{
  if(keys.has(k))throw new Error('dup key '+k);keys.add(k);
  return '<button type="button" class="num" data-k="'+k+'" data-ty="'+ty+'" data-df="'+df+'" data-s="'+(s||STEP[ty][0])+'" data-b="'+(b||STEP[ty][1])+'"></button>'});
 const ids=new Set();
 const rowH=(r,j)=>{if(ids.has(r[0]))throw new Error('dup id '+r[0]);ids.add(r[0]);
- return '<div class="r" data-id="'+r[0]+'" data-t="'+esc(r[2])+'" style="animation-delay:'+(j*.06+.12).toFixed(2)+'s"><i class="ic">'+I(r[1])+'</i><div class="rl"><b>'+esc(r[2])+'</b><span>'+fact(r[3])+'</span></div><div class="rc"><button type="button" data-v="yes">Yes</button><button type="button" data-v="no">No</button><button type="button" class="nb" aria-label="Note for '+esc(r[2])+'">Note</button></div><textarea class="rn" rows="2" placeholder="Note"></textarea></div>'};
+ return '<div class="r" data-id="'+r[0]+'" data-t="'+esc(r[2])+'" style="animation-delay:'+(j*.06+.12).toFixed(2)+'s"><i class="ic">'+I(r[1])+'</i><div class="rl"><b>'+esc(r[2])+'</b><span>'+fact(r[3])+'</span>'+(r[4]?'<span class="inc">'+r[4].map(q=>'<span>'+I(q[0])+esc(q[1])+'</span>').join('')+'</span>':'')+'</div><div class="rc"><button type="button" data-v="yes">Yes</button><button type="button" data-v="no">No</button><button type="button" class="nb" aria-label="Note for '+esc(r[2])+'">Note</button></div><textarea class="rn" rows="2" placeholder="Note"></textarea></div>'};
 const N=TOPICS.length;
 const offerBig='<div class="bigs"><div><b data-live="of_join">250</b><span>to join</span></div><div><b data-live="of_x" data-suf="x">2x</b><span>Tue + Wed</span></div><div><b data-live="of_reward">2,000</b><span>= a wash</span></div></div>';
 const left=x=>x.photo?'<div class="fart photo"><img src="img/t/'+x.photo+'.jpg" alt="">':x.art?'<div class="fart art"><button type="button" class="zoom" data-zoom="'+x.art+'" aria-label="Open '+esc(x.t)+' full size"><img src="img/'+x.art+'.jpg" alt="'+esc(x.t)+'"><span class="zi">'+I('maximize-2')+'</span></button>':'<div class="fart offer">'+offerBig;

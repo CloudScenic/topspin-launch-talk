@@ -135,3 +135,8 @@ section{margin-top:clamp(32px,5vh,56px)}
 .card:focus-visible,.tile:focus-visible,.copy:focus-visible,.x:focus-visible,.fn:focus-visible,.fdots button:focus-visible,.rc button:focus-visible,.num:focus-visible,.pb:focus-visible,.zoom:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
 @media(max-width:900px){.panel.on{grid-template-columns:1fr;grid-template-rows:38vh auto;overflow:auto}.fbody{overflow:visible;padding-top:24px}.fart.art,.fart.offer{padding:24px 24px 150px}.zoom img{max-height:24vh}.fx{overflow:auto}.fx .x{position:fixed}.r{grid-template-columns:auto minmax(0,1fr)}.rc{grid-column:1/-1}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.inc{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.inc span{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);font-size:14px;line-height:1.2;color:var(--pale);font-weight:600}
+.inc svg{width:16px;height:16px;color:var(--gold);flex:none}
+.lv{color:var(--gold);font-weight:800}
