@@ -122,6 +122,7 @@ ${sprite}
 <div class="meta"><span class="pill">Joe · Nov 12</span><span class="pill"><b id="done">0</b> / <b id="total">0</b> decided</span><button class="copy" id="copy" type="button">Copy notes</button></div>
 </header>
 ${['01','02','03','04'].map(section).join('\n')}
+<section><p class="sk"><span>05</span>Where we are · November update</p><div class="vid"><video controls preload="metadata" playsinline poster="video/poster.jpg"><source src="video/topspin-update.mp4" type="video/mp4"></video></div></section>
 </div>
 <div class="fx" id="fx" hidden role="dialog" aria-modal="true" aria-label="Topic"><button class="x" id="fxx" type="button" aria-label="Close">${I('x')}</button>
 ${TOPICS.map(panel).join('\n')}

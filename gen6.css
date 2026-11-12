@@ -147,3 +147,5 @@ section{margin-top:clamp(32px,5vh,56px)}
 .spot .ri{opacity:.75}
 .ri .rl b:after{content:"Good to know";font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-left:12px;vertical-align:3px}
 .ri{padding:12px 18px}.ri .ic{width:44px;height:44px;border-radius:13px}.ri .ic svg{width:22px;height:22px}.ri .rl b{font-size:18px}
+.vid{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#000;box-shadow:0 30px 70px rgba(0,0,0,.4);animation:in .7s cubic-bezier(.22,.7,.3,1) both;max-width:1200px;margin:0 auto}
+.vid video{display:block;width:100%;aspect-ratio:16/9;background:#000}
