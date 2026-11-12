@@ -37,15 +37,6 @@ const TOPICS=[
   ['wf-lost','shield-alert','Lost or damaged','Up to {lost_x:i:10}x the pound price, cap {lost_cap:m:100:5:25}'],
   ['wf-unpaid','credit-card','Unpaid orders','Hold the bags, or card on file'],
   ['wf-pl','receipt','Bills and P&L','To lock the prices']]},
- {sec:'03',id:'launch',t:'Launch',ic:'rocket',photo:'app',rows:[
-  ['l-date','calendar-days','Launch date','{launch_date:d:}'],
-  ['l-day1','smartphone','Day one','Join, earn points, start machines'],
-  ['l-plus','crown','TopSpin+','On at launch, or later'],
-  ['l-cash','wallet','Laundry Cash','{lc_load:m:20:5:10} gets {lc_bonus:m:2:0.5:1} bonus, up to {lc_cap:p:20:1:5}%']]},
- {sec:'03',id:'paper',t:'Paperwork',ic:'signature',photo:'counter',rows:[
-  ['p-agree','pen-line','Agreement','Sign the service agreement'],
-  ['p-pay','banknote','Pay Cloud Scenic','Setup {setup:m:9500:100:1000} · Monthly {monthly:m:1500:50:250}'],
-  ['p-legal','file-text','Legal pages','Your lawyer: Terms, Privacy, Texts, Refunds']]},
  {sec:'03',id:'fascard',t:'Call FasCard',ic:'phone-call',photo:'dryers',rows:[
   ['f-logins','key-round','More logins','Up to {logins:i:10}, one per phone start'],
   ['f-own','user-check','Your login','Move machine starts to your account'],
@@ -59,9 +50,18 @@ const TOPICS=[
  {sec:'03',id:'confirm',t:'Confirm',ic:'badge-check',photo:'floor',rows:[
   ['c-hours','clock','Hours','{open_t:t:330:15:60} to {close_t:t:1440:15:60}, last wash {last_t:t:1350:15:60}'],
   ['c-phone','phone','Phone','(805) 366-0302'],
-  ['c-mach','circle-dollar-sign','Machine prices','Washers from {w_from:m:3} · dryers {dry:m:0.25} per {dry_min:i:9} min']]}
+  ['c-mach','circle-dollar-sign','Machine prices','Washers from {w_from:m:3} · dryers {dry:m:0.25} per {dry_min:i:9} min']]},
+ {sec:'04',id:'launch',t:'Launch',ic:'rocket',photo:'app',rows:[
+  ['l-date','calendar-days','Launch date','{launch_date:d:}'],
+  ['l-day1','smartphone','Day one','Join, earn points, start machines'],
+  ['l-plus','crown','TopSpin+','On at launch, or later'],
+  ['l-cash','wallet','Laundry Cash','{lc_load:m:20:5:10} gets {lc_bonus:m:2:0.5:1} bonus, up to {lc_cap:p:20:1:5}%']]},
+ {sec:'04',id:'paper',t:'Paperwork',ic:'signature',photo:'counter',rows:[
+  ['p-agree','pen-line','Agreement','Sign the service agreement'],
+  ['p-pay','banknote','Pay Cloud Scenic','Setup {setup:m::100:1000} · Monthly {monthly:m::50:250}'],
+  ['p-legal','file-text','Legal pages','Your lawyer: Terms, Privacy, Texts, Refunds']]}
 ];
-const SECS={'01':'Approve','02':'Wash and fold · Dec or Jan','03':'Before launch'};
+const SECS={'01':'Approve','02':'Wash and fold · Dec or Jan','03':'Before launch','04':'Launch and paperwork'};
 const STEP={m:[.25,1],i:[1,10],p:[1,5],t:[15,60],d:[0,0]};
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 
@@ -111,7 +111,7 @@ ${sprite}
 <div><img class="logo" src="img/logo-white.svg" alt="TopSpin"><h1>Launch talk<span class="dot">.</span></h1></div>
 <div class="meta"><span class="pill">Joe · Nov 12</span><span class="pill"><b id="done">0</b> / <b id="total">0</b> decided</span><button class="copy" id="copy" type="button">Copy notes</button></div>
 </header>
-${['01','02','03'].map(section).join('\n')}
+${['01','02','03','04'].map(section).join('\n')}
 </div>
 <div class="fx" id="fx" hidden role="dialog" aria-modal="true" aria-label="Topic"><button class="x" id="fxx" type="button" aria-label="Close">${I('x')}</button>
 ${TOPICS.map(panel).join('\n')}
