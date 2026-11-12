@@ -5,12 +5,12 @@ const TOPICS=[
  {sec:'01',id:'flyer',t:'Flyer',ic:'file-image',art:'flyer',rows:[
   ['flyer','badge-check','Design','8.5 x 11, ready to print'],
   ['fl-qty','copy','How many','{fl_qty:i::50:250} printed'],
-  ['fl-where','map-pin','Where they go','Counter, door, college'],
+  ['fl-where','map-pin','Where they go','Counter, window, college'],
   ['fl-es','languages','Spanish','Version on file']]},
- {sec:'01',id:'door',t:'Door cling',ic:'door-open',art:'door',rows:[
+ {sec:'01',id:'door',t:'Window cling',ic:'app-window',art:'door',rows:[
   ['door','badge-check','Design','Static cling, no glue'],
   ['dc-size','ruler','Size','{dc_w:i:12:1:4} x {dc_h:i:12:1:4} inches'],
-  ['dc-where','door-open','Which door','Inside or outside the glass'],
+  ['dc-where','app-window','Which window','Inside or outside the glass'],
   ['dc-qty','copy','How many','{dc_qty:i:2}']]},
  {sec:'01',id:'stickers',t:'Stickers',ic:'qr-code',art:'stickers',rows:[
   ['stickers','badge-check','Design','3 x 4 waterproof vinyl'],
