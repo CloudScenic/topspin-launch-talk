@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>TopSpin Launch Talk</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+:root{--navy:#0b2545;--deep:#081c38;--card:#12325a;--card2:#163a63;--sky:#2ea8e6;--gold:#e4b55a;--pale:#f2f7fb;--soft:#bfd8e8;--line:rgba(255,255,255,.13);
+--sans:'Plus Jakarta Sans',system-ui,Arial,sans-serif;--mono:'JetBrains Mono',ui-monospace,Menlo,monospace;color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%}
+body{font-family:var(--sans);background:var(--navy);color:var(--pale);-webkit-font-smoothing:antialiased;overflow-x:hidden;
+background-image:radial-gradient(1000px 520px at 88% -10%,rgba(46,168,230,.2),transparent 60%);background-attachment:fixed}
+.wrap{max-width:1500px;margin:0 auto;padding:clamp(24px,4vh,48px) max(24px,env(safe-area-inset-right,0px)) 32px max(24px,env(safe-area-inset-left,0px))}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.logo{height:34px;display:block}
+h1{font-size:clamp(40px,5.4vw,72px);line-height:.95;letter-spacing:-.045em;font-weight:800;margin-top:22px}
+.dot{color:var(--gold)}
+.meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.pill{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:10px 16px;background:rgba(8,28,56,.5)}
+.pill b{color:var(--gold);font-size:14px}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+.copy{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:var(--gold);color:var(--navy);border-radius:999px;padding:11px 18px;font-weight:600}
+.row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:clamp(24px,4vh,40px)}
+@media(min-width:1700px){.row{grid-template-columns:repeat(10,minmax(0,1fr))}}
+@media(max-width:900px){.row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.card{display:flex;flex-direction:column;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .25s cubic-bezier(.22,.7,.3,1),border-color .2s,box-shadow .25s;animation:in .6s cubic-bezier(.22,.7,.3,1) both}
+.card:hover{transform:translateY(-4px);border-color:rgba(228,181,90,.6);box-shadow:0 18px 40px rgba(0,0,0,.3)}
+@keyframes in{from{opacity:0;transform:translateY(18px)}}
+.thumb{height:clamp(120px,19vh,200px);display:flex;align-items:center;justify-content:center;padding:14px;background:var(--deep);position:relative}
+.thumb img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 10px 20px rgba(0,0,0,.4))}
+.thumb .bigs{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;justify-content:center}
+.thumb .bigs div{text-align:center}
+.thumb .bigs b{display:block;font-size:clamp(34px,3.4vw,52px);font-weight:800;letter-spacing:-.05em;line-height:1}
+.thumb .bigs span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-top:8px}
+.cb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.ct{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.n{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--gold)}
+.name{font-size:19px;font-weight:800;letter-spacing:-.02em}
+.st{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px;border-radius:999px;border:1px solid var(--line);color:var(--soft);white-space:nowrap}
+.st.yes{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.st.no{background:var(--pale);border-color:var(--pale);color:var(--navy)}
+.prev{font-size:13px;line-height:1.4;color:var(--soft);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.8em}
+.prev.empty{opacity:.45}
+.card:focus-visible,.copy:focus-visible,.x:focus-visible,.nav:focus-visible,.vote button:focus-visible,textarea:focus{outline:3px solid var(--sky);outline-offset:3px}
+/* modal */
+.ov{position:fixed;inset:0;z-index:50;background:rgba(4,12,26,.82);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:24px;animation:fade .25s}
+.ov[hidden]{display:none}
+@keyframes fade{from{opacity:0}}
+.md{position:relative;width:min(1240px,100%);max-height:calc(100vh - 48px);overflow:auto;background:var(--navy);border:1px solid var(--line);border-radius:24px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);animation:pop .35s cubic-bezier(.22,.7,.3,1)}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.97)}}
+@media(max-width:900px){.md{grid-template-columns:1fr}}
+.mart{background:var(--deep);display:flex;align-items:center;justify-content:center;padding:32px;min-height:420px}
+.mart img{max-width:100%;max-height:calc(100vh - 140px);object-fit:contain;filter:drop-shadow(0 24px 50px rgba(0,0,0,.45))}
+.mart .bigs{display:flex;flex-direction:column;gap:22px;align-items:center}
+.mart .bigs div{text-align:center}
+.mart .bigs b{display:block;font-size:clamp(72px,9vw,140px);font-weight:800;letter-spacing:-.06em;line-height:.95}
+.mart .bigs span{display:block;font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:10px}
+.mside{padding:clamp(28px,4vw,52px);display:flex;flex-direction:column;justify-content:center}
+.mside h2{font-size:clamp(40px,4.6vw,68px);line-height:1;letter-spacing:-.04em;font-weight:800;margin-top:8px}
+dl{margin-top:22px}
+dl div{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);align-items:baseline}
+dt{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+dd{font-size:18px;font-weight:600}
+.vote{display:flex;gap:12px;margin-top:26px}
+.vote button{flex:1;padding:16px;border-radius:14px;border:2px solid var(--line);font-size:20px;font-weight:800;transition:all .2s}
+.vote button:hover{border-color:var(--gold)}
+.vote button.on[data-v=yes]{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.vote button.on[data-v=no]{background:var(--pale);border-color:var(--pale);color:var(--navy)}
+textarea{width:100%;margin-top:12px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:14px;color:var(--pale);font:600 17px/1.45 var(--sans);padding:14px 16px;resize:vertical;min-height:110px}
+textarea::placeholder{color:var(--soft);opacity:.55}
+.x{position:absolute;top:16px;right:16px;width:46px;height:46px;border-radius:23px;background:var(--gold);color:var(--navy);font-size:26px;font-weight:800;line-height:1;display:flex;align-items:center;justify-content:center;z-index:2}
+.nav{position:fixed;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:25px;background:rgba(18,50,90,.9);border:1px solid var(--line);font-size:26px;font-weight:800;display:flex;align-items:center;justify-content:center;z-index:51}
+.nav.pv{left:16px}.nav.nx{right:16px}
+@media(max-width:900px){.nav{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<div><img class="logo" src="img/logo-white.svg" alt="TopSpin"><h1>Launch talk<span class="dot">.</span></h1></div>
+<div class="meta"><span class="pill">Joe · Nov 12</span><span class="pill"><b id="done">0</b> / <b id="total">0</b> decided</span><button class="copy" id="copy" type="button">Copy notes</button></div>
+</header>
+<div class="row" id="row"></div>
+</div>
+<div class="ov" id="ov" hidden>
+<button class="nav pv" id="pv" type="button" aria-label="Previous">‹</button>
+<div class="md" role="dialog" aria-modal="true" aria-labelledby="mt">
+<button class="x" id="x" type="button" aria-label="Close">×</button>
+<div class="mart" id="mart"></div>
+<div class="mside"><p class="n" id="mn"></p><h2 id="mt"></h2><dl id="mf"></dl>
+<div class="vote" role="group" aria-label="Decision"><button type="button" data-v="yes">Yes</button><button type="button" data-v="no">No</button></div>
+<textarea id="note"></textarea></div>
+</div>
+<button class="nav nx" id="nx" type="button" aria-label="Next">›</button>
+</div>
+<script>
+var D=[{"id": "flyer", "t": "Flyer", "img": "flyer", "f": [["Size", "8.5 x 11, print-ready"], ["Spanish", "On file"]], "ph": "How many? Where do they go?"}, {"id": "door", "t": "Door cling", "img": "door", "f": [["Size", "12 x 12 static cling"], ["Also", "8 x 8 or 6 x 6"]], "ph": "Which door? Inside or outside the glass?"}, {"id": "stickers", "t": "Stickers", "img": "stickers", "f": [["Count", "112, one per machine"], ["Size", "3 x 4 waterproof vinyl"], ["Skip", "Dryers 959 and 960"]], "ph": "Which print shop? Who puts them up?"}, {"id": "offer", "t": "The offer", "big": [["250", "to join"], ["2x", "Tue + Wed"]], "f": [["Join", "250 points"], ["Double", "Every Tuesday and Wednesday"], ["Reward", "2,000 points = a wash on us"]], "ph": "Student deal for the college visit?"}, {"id": "launch", "t": "Launch", "big": [["Day 1", "join, earn, start"]], "f": [["Day one", "Join, earn points, start machines"], ["Coming soon", "Wash and fold, pickup, monthly plans"]], "ph": "Launch date? TopSpin+ and Laundry Cash now or later?"}, {"id": "washfold", "t": "Wash and fold", "img": "prices", "f": [["Opens", "December or January"], ["Drop-off", "$1.75 a pound"], ["Pickup", "$1.99 a pound + trip"], ["Plans", "$39 to $179 a month"]], "ph": "Certified scale? Pounds a day? Who drives? Lost item rule? Unpaid orders? Bills and P&L"}, {"id": "paperwork", "t": "Paperwork", "big": [["$", "setup + monthly"]], "f": [["Setup", "[$____]"], ["Monthly", "[$____]"], ["You own", "App, website, brand, customer data"], ["Money", "Sits in your Square account"]], "ph": "Sign and pay by? Lawyer for the legal pages?"}, {"id": "fascard", "t": "FasCard", "big": [["10", "more logins"]], "f": [["Logins", "Up to 10 more"], ["Starts", "Move to your login"], ["Access", "Sales and prices"], ["Remove", "Dryers 959 and 960"]], "ph": "Who calls? By when? Do extra logins cost?"}, {"id": "checks", "t": "Quick checks", "big": [["5:30", "AM to midnight"]], "f": [["Hours", "5:30 AM to midnight, last wash 10:30"], ["Phone", "(805) 366-0302"], ["Laundry Cash", "$20 gets $2, up to 20%"]], "ph": "Machine prices right? Staff training? College visit?"}, {"id": "checklist", "t": "Checklist", "img": "checklist", "f": [["Joe", "Approve, print, sign, call FasCard"], ["Us", "Scan every sticker, train staff"]], "ph": "Launch date"}],KEY='topspin-talk-v3',st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+function o(id){return st[id]=st[id]||{}}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function bigs(b){return '<div class="bigs">'+b.map(function(x){return '<div><b>'+esc(x[0])+'</b><span>'+esc(x[1])+'</span></div>'}).join('')+'</div>'}
+var row=document.getElementById('row');
+D.forEach(function(it,i){var c=document.createElement('button');c.type='button';c.className='card';c.id='c-'+it.id;c.style.animationDelay=(i*.05)+'s';
+ c.innerHTML='<div class="thumb">'+(it.img?'<img src="img/'+it.img+'-s.jpg" alt="">':bigs(it.big))+'</div><div class="cb"><div class="ct"><span class="n">'+String(i+1).padStart(2,'0')+'</span><span class="st"></span></div><span class="name">'+esc(it.t)+'</span><span class="prev"></span></div>';
+ c.addEventListener('click',function(){open_(i)});row.appendChild(c)});
+function paint(){var d=0;D.forEach(function(it){var s=o(it.id),c=document.getElementById('c-'+it.id),t=c.querySelector('.st'),p=c.querySelector('.prev');
+ t.className='st'+(s.v?' '+s.v:'');t.textContent=s.v?s.v:'open';if(s.v)d++;
+ p.textContent=s.n||it.ph;p.classList.toggle('empty',!s.n)});
+ document.getElementById('done').textContent=d;document.getElementById('total').textContent=D.length}
+var ov=document.getElementById('ov'),note=document.getElementById('note'),cur=-1,last=null;
+function fill(){var it=D[cur],s=o(it.id);
+ document.getElementById('mart').innerHTML=it.img?'<img src="img/'+it.img+'.jpg" alt="'+esc(it.t)+'">':bigs(it.big);
+ document.getElementById('mn').textContent=String(cur+1).padStart(2,'0')+' / '+D.length;
+ document.getElementById('mt').innerHTML=esc(it.t)+'<span class="dot">.</span>';
+ document.getElementById('mf').innerHTML=(it.f||[]).map(function(r){return '<div><dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd></div>'}).join('');
+ ov.querySelectorAll('.vote button').forEach(function(b){b.classList.toggle('on',b.dataset.v===s.v);b.setAttribute('aria-pressed',b.dataset.v===s.v)});
+ note.value=s.n||'';note.placeholder=it.ph}
+function open_(i){last=document.activeElement;cur=(i+D.length)%D.length;fill();ov.hidden=false;document.body.style.overflow='hidden';document.getElementById('x').focus()}
+function close_(){ov.hidden=true;document.body.style.overflow='';cur=-1;paint();if(last)last.focus()}
+ov.querySelectorAll('.vote button').forEach(function(b){b.addEventListener('click',function(){var s=o(D[cur].id);s.v=s.v===b.dataset.v?'':b.dataset.v;save();fill();paint()})});
+note.addEventListener('input',function(){o(D[cur].id).n=note.value;save();paint()});
+document.getElementById('x').addEventListener('click',close_);
+document.getElementById('pv').addEventListener('click',function(){open_(cur-1)});
+document.getElementById('nx').addEventListener('click',function(){open_(cur+1)});
+ov.addEventListener('click',function(e){if(e.target===ov)close_()});
+document.addEventListener('keydown',function(e){if(ov.hidden)return;if(e.key==='Escape')close_();if(e.target===note)return;if(e.key==='ArrowRight')open_(cur+1);if(e.key==='ArrowLeft')open_(cur-1)});
+document.getElementById('copy').addEventListener('click',function(){var b=this,txt='TopSpin launch talk with Joe, Nov 12\n\n'+D.map(function(it,i){var s=o(it.id);return (i+1)+'. '+it.t+': '+(s.v?s.v.toUpperCase():'open')+(s.n?'\n   '+s.n.replace(/\n/g,'\n   '):'')}).join('\n');
+ function ok(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy notes'},1600)}
+ function fb(){var t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();try{document.execCommand('copy');ok()}catch(e){}t.remove()}
+ if(navigator.clipboard)navigator.clipboard.writeText(txt).then(ok,fb);else fb()});
+paint();
+</script>
+</body>
+</html>
