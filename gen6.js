@@ -80,7 +80,7 @@ document.addEventListener('keydown',function(e){
  if(e.key==='ArrowRight'){e.preventDefault();openT(ti+1)}if(e.key==='ArrowLeft'){e.preventDefault();openT(ti-1)}
  if(e.key==='ArrowDown'){e.preventDefault();closePop();spot(spi+1)}if(e.key==='ArrowUp'){e.preventDefault();closePop();spot(spi-1)}});
 /* copy notes */
-document.getElementById('copy').addEventListener('click',function(){var b=this,txt='TopSpin launch talk with Joe, Nov 12\n'+panels.map(function(p,i){
+document.getElementById('copy').addEventListener('click',function(){var b=this,txt='TopSpin launch talk with Joe, Nov 13\n'+panels.map(function(p,i){
  return '\n'+TOPICS[i].t.toUpperCase()+'\n'+$$('.r,.ri',p).map(function(r){if(r.classList.contains('ri')){var inc=$$('.inc span',r).map(function(c){return c.textContent}).join(', ');return '  · '+r.querySelector('.rl b').textContent+': '+r.querySelector('.rl span').textContent.replace(/\s+/g,' ').trim()+(inc?' ('+inc+')':'')}var s=o(r.dataset.id);return '- '+r.dataset.t+': '+r.querySelector('.rl span').textContent.replace(/\s+/g,' ').trim()+'  ['+(s.v?s.v.toUpperCase():'open')+']'+(s.n?'\n    '+s.n.replace(/\n/g,'\n    '):'')}).join('\n')}).join('\n');
  function ok(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy notes'},1600)}
  function fb(){var t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();try{document.execCommand('copy');ok()}catch(e){}t.remove()}

@@ -119,7 +119,7 @@ ${sprite}
 <div class="wrap">
 <header>
 <div><img class="logo" src="img/logo-white.svg" alt="TopSpin"><h1>Launch talk<span class="dot">.</span></h1></div>
-<div class="meta"><span class="pill">Joe · Nov 12</span><span class="pill"><b id="done">0</b> / <b id="total">0</b> decided</span><button class="copy" id="copy" type="button">Copy notes</button></div>
+<div class="meta"><span class="pill">Joe · Nov 13 · Tastea, 2 PM</span><span class="pill"><b id="done">0</b> / <b id="total">0</b> decided</span><button class="copy" id="copy" type="button">Copy notes</button></div>
 </header>
 ${['01','02','03','04'].map(section).join('\n')}
 <section><p class="sk"><span>05</span>Where we are · November update</p><div class="vid"><video controls preload="metadata" playsinline poster="video/poster.jpg"><source src="video/topspin-update.mp4" type="video/mp4"></video></div></section>
