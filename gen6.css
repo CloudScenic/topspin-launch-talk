@@ -140,3 +140,8 @@ section{margin-top:clamp(32px,5vh,56px)}
 .inc span{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);font-size:14px;line-height:1.2;color:var(--pale);font-weight:600}
 .inc svg{width:16px;height:16px;color:var(--gold);flex:none}
 .lv{color:var(--gold);font-weight:800}
+
+.ri{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 18px;align-items:start;padding:16px 18px;border:1px dashed rgba(228,181,90,.45);border-radius:18px;background:rgba(228,181,90,.06);margin-bottom:12px;animation:in .55s cubic-bezier(.22,.7,.3,1) both}
+.ri .ic{width:54px;height:54px;border-radius:16px;background:rgba(228,181,90,.18);color:var(--gold);display:flex;align-items:center;justify-content:center}
+.ri .ic svg{width:27px;height:27px}
+.spot .ri{opacity:.75}

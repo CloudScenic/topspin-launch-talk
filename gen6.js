@@ -71,7 +71,7 @@ panels.forEach(function(p){rowsOf(p).forEach(function(r,j){r.addEventListener('c
 $$('[data-go]').forEach(function(b){b.addEventListener('click',function(){openT(+b.dataset.go)})});
 document.getElementById('fxx').addEventListener('click',closeT);
 var lb=document.getElementById('lb'),lbi=document.getElementById('lbi');
-$$('[data-zoom]').forEach(function(b){b.addEventListener('click',function(){lbi.src='img/'+b.dataset.zoom+'.jpg';lbi.alt=b.getAttribute('aria-label');lb.hidden=false})});
+$$('[data-zoom]').forEach(function(b){b.addEventListener('click',function(){lbi.src='img/'+b.dataset.zoom;lbi.alt=b.getAttribute('aria-label');lb.hidden=false})});
 lb.addEventListener('click',function(){lb.hidden=true});
 document.addEventListener('keydown',function(e){
  if(!lb.hidden){if(e.key==='Escape')lb.hidden=true;return}

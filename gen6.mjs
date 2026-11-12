@@ -3,20 +3,11 @@
 import fs from 'fs';
 const TOPICS=[
  {sec:'01',id:'flyer',t:'Flyer',ic:'file-image',art:'flyer',rows:[
-  ['flyer','badge-check','Design','8.5 x 11, ready to print'],
-  ['fl-qty','copy','How many','{fl_qty:i::50:250} printed'],
-  ['fl-where','map-pin','Where they go','Counter, window, college'],
-  ['fl-es','languages','Spanish','Version on file']]},
+  ['flyer','badge-check','Design','8.5 x 11, ready to print']]},
  {sec:'01',id:'door',t:'Window cling',ic:'app-window',art:'door',rows:[
-  ['door','badge-check','Design','Static cling, no glue'],
-  ['dc-size','ruler','Size','{dc_w:i:12:1:4} x {dc_h:i:12:1:4} inches'],
-  ['dc-where','app-window','Which window','Inside or outside the glass'],
-  ['dc-qty','copy','How many','{dc_qty:i:2}']]},
- {sec:'01',id:'stickers',t:'Stickers',ic:'qr-code',art:'stickers',rows:[
-  ['stickers','badge-check','Design','3 x 4 waterproof vinyl'],
-  ['st-count','hash','How many','{st_count:i:112} machines, skip 959 and 960'],
-  ['st-cost','tag','Print cost','About {st_cost:m:1.50} each'],
-  ['st-who','user-check','Who puts them up','Staff, then we scan each one']]},
+  ['door','badge-check','Design','12 x 12 static cling for the window']]},
+ {sec:'01',id:'stickers',t:'Stickers',ic:'qr-code',art:'sticker',ext:'png',rows:[
+  ['stickers','badge-check','Design','3 x 4 waterproof vinyl, one per machine']]},
  {sec:'01',id:'offer',t:'The offer',ic:'gift',offer:true,rows:[
   ['offer','badge-check','The offer','Points that bring them back'],
   ['of-join','user-plus','Join','{of_join:i:250:50:250} points'],
@@ -29,16 +20,17 @@ const TOPICS=[
   ['wf-trip','truck','Trip, both ways','{trip1:m:4.99} · {trip2:m:8.99} · {trip3:m:12.99}'],
   ['wf-zones','map','Zones','Up to {z1:i:3} · {z2:i:6} · {z3:i:10} miles'],
   ['wf-plans','calendar-check','Monthly plans','{pl1:i:20:5:10} lb {pp1:m:39:1:5} · {pl2:i:40:5:10} lb {pp2:m:72:1:5} · {pl3:i:80:5:10} lb {pp3:m:129:1:5} · {pl4:i:120:5:10} lb {pp4:m:179:1:5}'],
-  ['wf-over','circle-plus','Over the plan','{wf_over:m:2.19} a pound']]},
- {sec:'02',id:'before',t:'Before it opens',ic:'clipboard-list',photo:'fold',rows:[
-  ['wf-scale','scale','Scale','Certified for trade, Ventura County'],
-  ['wf-lbs','gauge','Pounds a day','Staff can fold {lbs_day:i::10:50} lb a day'],
-  ['wf-drive','car','Driver','Your driver or a delivery service'],
-  ['wf-lost','shield-alert','Lost or damaged','Up to {lost_x:i:10}x the pound price, cap {lost_cap:m:100:5:25}'],
-  ['wf-unpaid','credit-card','Unpaid orders','Hold the bags, or card on file'],
-  ['wf-pl','receipt','Bills and P&L','To lock the prices']]},
+  ['wf-over','circle-plus','Over the plan','{wf_over:m:2.19} a pound'],
+  ['i-tide','chart-column','What others charge','Tide Cleaners, monthly with pickup included',[['calendar-check','20 lb $45'],['calendar-check','40 lb $80'],['calendar-check','80 lb $145'],['calendar-check','120 lb $195'],['circle-plus','Over: $2.49/lb'],['store','Local counters: $1.50 to $2.50/lb'],['truck','Delivery fee: $5 to $10 typical']],'info']]},
+ {sec:'02',id:'before',t:'How it runs',ic:'clipboard-list',photo:'fold',rows:[
+  ['wf-scale','scale','Scale','Required by law to sell by the pound. County seal, checked yearly'],
+  ['wf-lbs','gauge','Staff','Industry: about {lbs_shift:i:130:10:50} lb per shift with store duties, 30 lb an hour folding only'],
+  ['wf-drive','car','Driver','Your own driver keeps the trip fee · a courier is about {courier:m:7:0.5:1} each way'],
+  ['wf-lost','shield-alert','Lost or damaged','Common rule: {lost_x:i:10}x the pound price, cap {lost_cap:m:100:5:25} an order'],
+  ['wf-unpaid','credit-card','Unpaid orders','Common rule: card on file, bags held until paid'],
+  ['wf-pl','receipt','Bills and P&L','So every pound makes money']]},
  {sec:'03',id:'fascard',t:'Call FasCard',ic:'phone-call',photo:'dryers',rows:[
-  ['f-logins','key-round','More logins','Up to {logins:i:10}, one per phone start'],
+  ['f-logins','key-round','Backup cards','{logins:i:3} spare start cards. One card serves every customer; spares take over if it fails'],
   ['f-own','user-check','Your login','Move machine starts to your account'],
   ['f-access','chart-line','Sales and prices','Open access on your login'],
   ['f-dryers','trash-2','Old dryers','Remove 959 and 960']]},
@@ -62,9 +54,9 @@ const TOPICS=[
  {sec:'04',id:'paper',t:'Paperwork',ic:'signature',photo:'counter',rows:[
   ['p-agree','pen-line','Agreement','Sign the service agreement'],
   ['p-pay','banknote','Pay Cloud Scenic','Founding price: setup {setup:m:5000:100:1000} · Monthly {monthly:m:1500:50:250}'],
-  ['p-next','store','Next stores','{next_setup:m:5000:250:1000} setup each, same monthly'],
-  ['p-own','key-square','Who owns what','Yours: customers, data, brand, accounts, money · Ours: the engine underneath'],
-  ['p-jv','handshake','Our venture','Sell it to other owners together, {jv_split:p:50:5:10}% each, attorney next'],
+  ['p-next','store','Next stores','{next_setup:m:3000:250:1000} setup each, same monthly · scan only, no card reader'],
+  ['p-own','key-square','Who owns what','Your store: customers, data, brand, money · The engine: ours now, 50/50 in the venture'],
+  ['p-jv','handshake','Our venture','You: outreach, sales, legal · Us: build and run it · {jv_split:p:50:5:10}% each'],
   ['p-legal','file-text','Legal pages','Your lawyer: Terms, Privacy, Texts, Refunds']]}
 ];
 const SECS={'01':'Approve','02':'Wash and fold · Dec or Jan','03':'Before launch','04':'Launch and paperwork'};
@@ -84,15 +76,16 @@ const fact=f=>esc(f).replace(/\{=([a-z0-9_]+)\}/g,'<b class="lv" data-live="$1" 
  return '<button type="button" class="num" data-k="'+k+'" data-ty="'+ty+'" data-df="'+df+'" data-s="'+(s||STEP[ty][0])+'" data-b="'+(b||STEP[ty][1])+'"></button>'});
 const ids=new Set();
 const rowH=(r,j)=>{if(ids.has(r[0]))throw new Error('dup id '+r[0]);ids.add(r[0]);
+ if(r[5]==='info')return '<div class="ri" style="animation-delay:'+(j*.06+.12).toFixed(2)+'s"><i class="ic">'+I(r[1])+'</i><div class="rl"><b>'+esc(r[2])+'</b><span>'+fact(r[3])+'</span>'+(r[4]?'<span class="inc">'+r[4].map(q=>'<span>'+I(q[0])+esc(q[1])+'</span>').join('')+'</span>':'')+'</div></div>';
  return '<div class="r" data-id="'+r[0]+'" data-t="'+esc(r[2])+'" style="animation-delay:'+(j*.06+.12).toFixed(2)+'s"><i class="ic">'+I(r[1])+'</i><div class="rl"><b>'+esc(r[2])+'</b><span>'+fact(r[3])+'</span>'+(r[4]?'<span class="inc">'+r[4].map(q=>'<span>'+I(q[0])+esc(q[1])+'</span>').join('')+'</span>':'')+'</div><div class="rc"><button type="button" data-v="yes">Yes</button><button type="button" data-v="no">No</button><button type="button" class="nb" aria-label="Note for '+esc(r[2])+'">Note</button></div><textarea class="rn" rows="2" placeholder="Note"></textarea></div>'};
 const N=TOPICS.length;
 const offerBig='<div class="bigs"><div><b data-live="of_join">250</b><span>to join</span></div><div><b data-live="of_x" data-suf="x">2x</b><span>Tue + Wed</span></div><div><b data-live="of_reward">2,000</b><span>= a wash</span></div></div>';
-const left=x=>x.photo?'<div class="fart photo"><img src="img/t/'+x.photo+'.jpg" alt="">':x.art?'<div class="fart art"><button type="button" class="zoom" data-zoom="'+x.art+'" aria-label="Open '+esc(x.t)+' full size"><img src="img/'+x.art+'.jpg" alt="'+esc(x.t)+'"><span class="zi">'+I('maximize-2')+'</span></button>':'<div class="fart offer">'+offerBig;
+const left=x=>x.photo?'<div class="fart photo"><img src="img/t/'+x.photo+'.jpg" alt="">':x.art?'<div class="fart art"><button type="button" class="zoom" data-zoom="'+x.art+'.'+(x.ext||'jpg')+'" aria-label="Open '+esc(x.t)+' full size"><img src="img/'+x.art+'.'+(x.ext||'jpg')+'" alt="'+esc(x.t)+'"><span class="zi">'+I('maximize-2')+'</span></button>':'<div class="fart offer">'+offerBig;
 const panel=(x,i)=>'<div class="panel" data-p="'+i+'">'+left(x)+'<div class="fh"><span class="tic">'+I(x.ic)+'</span><h2>'+esc(x.t)+'<span class="dot">.</span></h2><p class="fp"></p></div></div><div class="fbody"><div class="rows2">'+x.rows.map(rowH).join('')+'</div><div class="fbar"><button type="button" class="fn" data-go="'+((i-1+N)%N)+'">'+I('chevron-left')+'<span>'+esc(TOPICS[(i-1+N)%N].t)+'</span></button><div class="fdots">'+TOPICS.map((y,k)=>'<button type="button" data-go="'+k+'" class="'+(k===i?'on':'')+'" aria-label="'+esc(y.t)+'"></button>').join('')+'</div><button type="button" class="fn" data-go="'+((i+1)%N)+'"><span>'+esc(TOPICS[(i+1)%N].t)+'</span>'+I('chevron-right')+'</button></div></div></div>';
 const ring=n=>'<span class="ring"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19"/><circle class="rf" cx="22" cy="22" r="19"/></svg><b>0/'+n+'</b></span>';
-const chips=x=>'<span class="chips">'+x.rows.map(r=>'<span data-c="'+r[0]+'">'+I(r[1])+'</span>').join('')+'</span>';
-const card=(x,i)=>'<button type="button" class="card" data-t="'+i+'" style="animation-delay:'+(i*.06).toFixed(2)+'s"><span class="thumb">'+(x.art?'<img src="img/'+x.art+'-s.jpg" alt="">':offerBig)+'</span>'+ring(x.rows.length)+'<span class="cb"><span class="name">'+esc(x.t)+'</span>'+chips(x)+'</span></button>';
-const tile=(x,i)=>'<button type="button" class="tile" data-t="'+i+'" style="animation-delay:'+(i*.05).toFixed(2)+'s"><img class="bg" src="img/t/'+x.photo+'.jpg" alt=""><span class="tic">'+I(x.ic)+'</span>'+ring(x.rows.length)+'<span class="tb"><span class="tt">'+esc(x.t)+'</span>'+chips(x)+'</span></button>';
+const chips=x=>'<span class="chips">'+x.rows.filter(r=>r[5]!=='info').map(r=>'<span data-c="'+r[0]+'">'+I(r[1])+'</span>').join('')+'</span>';
+const card=(x,i)=>'<button type="button" class="card" data-t="'+i+'" style="animation-delay:'+(i*.06).toFixed(2)+'s"><span class="thumb">'+(x.art?'<img src="img/'+x.art+'-s.'+(x.ext||'jpg')+'" alt="">':offerBig)+'</span>'+ring(x.rows.filter(r=>r[5]!=='info').length)+'<span class="cb"><span class="name">'+esc(x.t)+'</span>'+chips(x)+'</span></button>';
+const tile=(x,i)=>'<button type="button" class="tile" data-t="'+i+'" style="animation-delay:'+(i*.05).toFixed(2)+'s"><img class="bg" src="img/t/'+x.photo+'.jpg" alt=""><span class="tic">'+I(x.ic)+'</span>'+ring(x.rows.filter(r=>r[5]!=='info').length)+'<span class="tb"><span class="tt">'+esc(x.t)+'</span>'+chips(x)+'</span></button>';
 const section=k=>{const list=TOPICS.map((x,i)=>[x,i]).filter(([x])=>x.sec===k);
  return '<section><p class="sk"><span>'+k+'</span>'+esc(SECS[k])+'</p><div class="'+(k==='01'?'row':'tiles n'+list.length)+'">'+list.map(([x,i])=>k==='01'?card(x,i):tile(x,i)).join('')+'</div></section>'};
 
