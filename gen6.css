@@ -149,3 +149,26 @@ section{margin-top:clamp(32px,5vh,56px)}
 .ri{padding:12px 18px}.ri .ic{width:44px;height:44px;border-radius:13px}.ri .ic svg{width:22px;height:22px}.ri .rl b{font-size:18px}
 .vid{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#000;box-shadow:0 30px 70px rgba(0,0,0,.4);animation:in .7s cubic-bezier(.22,.7,.3,1) both;max-width:1200px;margin:0 auto}
 .vid video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+@media(max-width:900px){
+.fx{overflow-x:hidden;overflow-y:auto}
+.panel.on{display:block;height:auto}
+.fart{min-height:32vh;flex-direction:column;justify-content:flex-end;align-items:stretch;padding:20px!important}
+.fart.photo{min-height:38vh}
+.fart.art .zoom,.fart.offer .bigs{align-self:center;margin:64px 0 20px;animation:none}
+.zoom img{max-height:36vh}
+.zi{right:-8px;bottom:-8px;width:38px;height:38px}
+.fart.offer .bigs b{font-size:56px}
+.fh{position:relative;left:auto;right:auto;bottom:auto;z-index:1}
+.fh .tic{width:48px;height:48px;border-radius:15px}.fh .tic svg{width:24px;height:24px}
+.fh h2{font-size:44px;margin-top:12px}
+.fbody{padding:18px 14px 28px;overflow:visible}
+.r,.ri{grid-template-columns:auto minmax(0,1fr);padding:14px;gap:8px 14px}
+.r .ic{width:44px;height:44px}.r .ic svg{width:22px;height:22px}
+.rc{grid-column:1/-1}
+.rl b{font-size:19px}.ri .rl b:after{display:block;margin:4px 0 0}
+.spot .r.sp{transform:none}
+.fdots{display:none}
+.fn span{max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fx .x{position:fixed;top:14px;right:14px}
+.vid{border-radius:16px}
+}
