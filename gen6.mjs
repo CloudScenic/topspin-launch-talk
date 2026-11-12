@@ -109,6 +109,12 @@ const html=`<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>TopSpin Launch Talk</title>
+<meta property="og:title" content="TopSpin: Launch talk">
+<meta property="og:description" content="Fri Nov 13 · 2 PM · Tastea. Everything to approve, in one place.">
+<meta property="og:image" content="https://cloudscenic.github.io/topspin-launch-talk/img/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap">
 <style>
 ${css}
