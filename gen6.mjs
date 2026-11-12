@@ -3,11 +3,22 @@
 import fs from 'fs';
 const TOPICS=[
  {sec:'01',id:'flyer',t:'Flyer',ic:'file-image',art:'flyer',rows:[
-  ['flyer','badge-check','Design','8.5 x 11, ready to print']]},
+  ['flyer','badge-check','Design','8.5 x 11, ready to print'],
+  ['fl-qty','copy','How many','{fl_qty:i::50:250} printed, your call',null,'info'],
+  ['fl-where','map-pin','Where they go','Counter, window, college visit',null,'info'],
+  ['fl-es','languages','Spanish','Version on file, ready to print',null,'info'],
+  ['fl-print','printer','Print file','PDF, print-ready with bleed, sent with the pack',null,'info']]},
  {sec:'01',id:'door',t:'Window cling',ic:'app-window',art:'door',rows:[
-  ['door','badge-check','Design','12 x 12 static cling for the window']]},
+  ['door','badge-check','Design','Static cling for the window, no glue'],
+  ['dc-size','ruler','Size','{dc_w:i:12:1:4} x {dc_h:i:12:1:4} inches, also works at 8 x 8 or 6 x 6',null,'info'],
+  ['dc-where','app-window','Which window','Inside or outside the glass',null,'info'],
+  ['dc-qty','copy','How many','{dc_qty:i:2}',null,'info']]},
  {sec:'01',id:'stickers',t:'Stickers',ic:'qr-code',art:'sticker',ext:'png',rows:[
-  ['stickers','badge-check','Design','3 x 4 waterproof vinyl, one per machine']]},
+  ['stickers','badge-check','Design','3 x 4 waterproof vinyl, full-color logo'],
+  ['st-count','hash','How many','{st_count:i:112} machines, one each. Skip dryers 959 and 960',null,'info'],
+  ['st-cost','tag','Print cost','About {st_cost:m:1.50} each at a print shop, a few days',null,'info'],
+  ['st-who','user-check','Who puts them up','Staff, then we scan every one to check it opens the right machine',null,'info'],
+  ['st-link','link','The address','Every sticker opens topspinoxnard.com. Keep the domain renewed',null,'info']]},
  {sec:'01',id:'offer',t:'The offer',ic:'gift',offer:true,rows:[
   ['offer','badge-check','The offer','Points that bring them back'],
   ['of-join','user-plus','Join','{of_join:i:250:50:250} points'],

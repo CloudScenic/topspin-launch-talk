@@ -145,3 +145,5 @@ section{margin-top:clamp(32px,5vh,56px)}
 .ri .ic{width:54px;height:54px;border-radius:16px;background:rgba(228,181,90,.18);color:var(--gold);display:flex;align-items:center;justify-content:center}
 .ri .ic svg{width:27px;height:27px}
 .spot .ri{opacity:.75}
+.ri .rl b:after{content:"Good to know";font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-left:12px;vertical-align:3px}
+.ri{padding:12px 18px}.ri .ic{width:44px;height:44px;border-radius:13px}.ri .ic svg{width:22px;height:22px}.ri .rl b{font-size:18px}
