@@ -58,7 +58,8 @@ const TOPICS=[
   ['l-cash','wallet','Laundry Cash','{lc_load:m:20:5:10} gets {lc_bonus:m:2:0.5:1} bonus, up to {lc_cap:p:20:1:5}%']]},
  {sec:'04',id:'paper',t:'Paperwork',ic:'signature',photo:'counter',rows:[
   ['p-agree','pen-line','Agreement','Sign the service agreement'],
-  ['p-pay','banknote','Pay Cloud Scenic','Setup {setup:m::100:1000} · Monthly {monthly:m::50:250}'],
+  ['p-pay','banknote','Pay Cloud Scenic','Founding price: setup {setup:m:5000:100:1000} · Monthly {monthly:m:1500:50:250}'],
+  ['p-next','store','Next stores','{next_setup:m:3000:250:1000} setup each, same monthly'],
   ['p-legal','file-text','Legal pages','Your lawyer: Terms, Privacy, Texts, Refunds']]}
 ];
 const SECS={'01':'Approve','02':'Wash and fold · Dec or Jan','03':'Before launch','04':'Launch and paperwork'};
