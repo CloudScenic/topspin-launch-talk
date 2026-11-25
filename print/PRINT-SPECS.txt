@@ -1,0 +1,25 @@
+TOPSPIN LAUNDROMAT: PRINT FILES (final, Nov 25, 2026)
+Made by Cloud Scenic
+
+FILES (send the -PRINT.pdf files and the sticker file to the print shop)
+  Flyer             8.5 x 11 in, English and Spanish
+  Poster            18 x 24 in, English and Spanish (same design as the flyer, made at full size)
+  Window cling      12 x 12 in static cling (no glue), English and Spanish
+  Decal             12 x 12 in adhesive vinyl, peel and stick. Same art as the window cling. Ask for outdoor/UV laminate if it goes outside
+  Banner            3 x 6 ft (72 x 36 in) vinyl, grommets in the corners. English with Spanish lines
+  Machine stickers  3 x 4 in, one per machine, 112 total (stickers-print-3x4.pdf, one sticker per page)
+                    Waterproof vinyl with clear laminate, permanent adhesive, rounded corners
+                    Keep the QR code black on white and do not shrink it
+
+FOR THE PRINT SHOP
+  Format        PDF, CMYK. Logo area and pictures are images; type and QR codes are vector
+  Resolution    300 PPI at full size: flyer, poster, cling, decal. Banner: 150 PPI at full size (standard for a 3 x 6 ft banner)
+  Bleed         0.125 in on every side, already in the file. Trim box set. Stickers have crop marks
+  Brand colors  Navy #0B2545, Sky #2EA8E6, Gold #F4C24A
+
+THE OFFER ON EVERY PIECE
+  500 points for joining. 100 points every wash, 200 on Tuesdays and Wednesdays. 2,000 points = a free wash (up to $5.50).
+  Laundry Cash: load $20 get $2 free (10%), load $40 get $6 free (15%), load $100 get $20 free (20%).
+
+THE QR CODE on flyers, posters, clings, decals and the banner opens topspinoxnard.com/hello
+Each machine sticker's QR code opens that machine in the app
