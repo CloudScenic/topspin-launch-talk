@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TopSpin staff training</title><meta name="robots" content="noindex">
+<style>
+body{margin:0;font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;color:#0B2545;background:#f3f6fa}
+.w{max-width:900px;margin:0 auto;padding:28px 16px 48px}
+h1{font-size:28px;margin:0 0 4px}p.s{color:#4a5a70;margin:0 0 18px}
+video{width:100%;border-radius:14px;background:#000;display:block;box-shadow:0 12px 30px rgba(11,37,69,.25)}
+h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#4a5a70;margin:24px 0 10px}
+.ch{display:grid;gap:8px}
+.ch button{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;text-align:left;border:0;background:#fff;border-radius:10px;padding:14px 16px;font:inherit;font-size:16px;color:#0B2545;cursor:pointer}
+.ch button:hover,.ch button.on{background:#e3f3fc}
+.ch b{color:#2EA8E6;font-variant-numeric:tabular-nums}
+.note{margin-top:22px;color:#4a5a70;font-size:14px}
+</style></head><body><div class="w">
+<h1>TopSpin staff training</h1><p class="s">For everyone who works the counter. About 10 minutes, English with Spanish captions.</p>
+<video id="v" controls playsinline preload="metadata" poster="poster.jpg" src="TopSpin-Staff-Training.mp4"></video>
+<h2>Chapters · tap to jump</h2><div class="ch"><button data-t="0"><span>Welcome</span><b>0:00</b></button><button data-t="17.58"><span>1. What TopSpin is</span><b>0:18</b></button><button data-t="52.68"><span>2. The app</span><b>0:53</b></button><button data-t="152.9"><span>3. Signing customers up</span><b>2:33</b></button><button data-t="189.28"><span>4. Customer service</span><b>3:09</b></button><button data-t="241.66"><span>5. Scenarios</span><b>4:02</b></button><button data-t="380.12"><span>6. Rules and compliance</span><b>6:20</b></button><button data-t="497.94"><span>7. The back office</span><b>8:18</b></button><button data-t="538.24"><span>8. Open, close and weekly</span><b>8:58</b></button><button data-t="570.06"><span>Recap</span><b>9:30</b></button></div>
+<p class="note">Watch it once before your first shift, and come back to any chapter when you need it.</p>
+</div><script>
+const v=document.getElementById('v'),bs=[...document.querySelectorAll('.ch button')]
+bs.forEach(b=>b.onclick=()=>{v.currentTime=+b.dataset.t;v.play();window.scrollTo({top:0,behavior:'smooth'})})
+v.ontimeupdate=()=>{let k=0;bs.forEach((b,i)=>{if(v.currentTime>=+b.dataset.t)k=i});bs.forEach((b,i)=>b.classList.toggle('on',i===k))}
+</script></body></html>
